@@ -44,6 +44,7 @@ use gtk::CompositeTemplate;
 use crate::decoder::DecoderError;
 use crate::deps::*;
 use crate::file_model::{FileEvent, LpFileModel};
+use crate::ocr_engine::recognize_text_from_image;
 use crate::util::gettext::*;
 use crate::util::{self, Direction, Position};
 use crate::widgets::{LpImage, LpImagePage, LpPrint, LpSlidingView};
@@ -71,7 +72,10 @@ mod imp {
         pub(super) zoom_toggle: TemplateChild<gtk::ToggleButton>,
         #[template_child]
         pub(super) controls_box_start_events: TemplateChild<gtk::EventControllerMotion>,
-
+        
+        //#[template_child]
+        //pub(super) text_overlay: TemplateChild<LpTextOverlay>,
+        
         /// overlayed controls
         #[template_child]
         pub(super) controls_box_end: TemplateChild<gtk::Widget>,
@@ -730,7 +734,12 @@ impl LpImageView {
             self.update_sliding_view(&current_file);
         }
     }
-
+    
+    pub fn show_text_overlay(&self) {
+        let overlay_data = recognize_text_from_image(&self.current_file().unwrap());
+        println!("{}", overlay_data.unwrap());
+    }
+    
     pub fn current_image(&self) -> Option<LpImage> {
         self.imp().sliding_view.current_page().map(|x| x.image())
     }

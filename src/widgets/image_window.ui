@@ -132,6 +132,13 @@
                     <property name="tooltip-text" translatable="yes">Edit Image</property>
                   </object>
                 </child>
+                <child type="end">
+                  <object class="GtkButton">
+                    <property name="action-name">win.recognise-text</property>
+                    <property name="icon-name">text-symbolic</property>
+                    <property name="tooltip-text" translatable="yes">Recognise Text</property>
+                  </object>
+                </child>
                 <child>
                   <object class="GtkEventControllerMotion" id="headerbar_events" />
                 </child>

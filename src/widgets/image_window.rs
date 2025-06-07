@@ -723,6 +723,7 @@ impl LpImageWindow {
             Action::ZoomToExact100,
             Action::ZoomToExact200,
             Action::ZoomToExact300,
+            Action::RecogniseText,
         ];
 
         let enabled_shown = self

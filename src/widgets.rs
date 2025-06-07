@@ -32,6 +32,7 @@ mod properties_view;
 mod shy_bin;
 mod sliding_view;
 mod window;
+mod text_overlay;
 
 pub use drag_overlay::LpDragOverlay;
 pub use edit_window::LpEditWindow;

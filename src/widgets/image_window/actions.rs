@@ -90,6 +90,8 @@ pub enum Action {
     Reload,
     #[strum(to_string = "win.edit")]
     Edit,
+    #[strum(to_string = "win.recognise-text")]
+    RecogniseText,
 }
 
 impl Action {
@@ -289,6 +291,11 @@ impl Action {
                 Action::Edit => {
                     klass.install_action_async(&action, None, move |obj, _, _| async move {
                         obj.window().show_edit();
+                    });
+                }
+                Action::RecogniseText => {
+                    klass.install_action_async(&action, None, move |win, _, _| async move { 
+                       win.imp().image_view.show_text_overlay();
                     });
                 }
             }
