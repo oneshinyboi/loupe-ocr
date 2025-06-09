@@ -295,7 +295,7 @@ impl Action {
                 }
                 Action::RecogniseText => {
                     klass.install_action_async(&action, None, move |win, _, _| async move { 
-                       win.imp().image_view.show_text_overlay();
+                       win.imp().image_view.create_ocr_overlay().await;
                     });
                 }
             }

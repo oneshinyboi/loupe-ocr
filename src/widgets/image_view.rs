@@ -101,6 +101,9 @@ mod imp {
         pub(super) submit_zoom: TemplateChild<gtk::Button>,
 
         #[template_child]
+        pub(super) text_overlay: TemplateChild<crate::widgets::LpTextOverlay>,
+
+        #[template_child]
         pub sliding_view: TemplateChild<LpSlidingView>,
 
         pub drag_source: gtk::DragSource,
@@ -735,9 +738,8 @@ impl LpImageView {
         }
     }
     
-    pub fn show_text_overlay(&self) {
-        let overlay_data = recognize_text_from_image(&self.current_file().unwrap());
-        println!("{}", overlay_data.unwrap());
+    pub async fn create_ocr_overlay(&self) {
+        self.imp().text_overlay.start_ocr(self.current_file()).await;
     }
     
     pub fn current_image(&self) -> Option<LpImage> {
@@ -777,12 +779,13 @@ impl LpImageView {
         self.notify_current_page();
         self.notify_is_next_available();
         self.notify_is_previous_available();
-
+        self.imp().text_overlay.hide();
+        
         let Some(new_page) = self.current_page() else {
             log::debug!("Page changed but no current page");
             return;
         };
-
+        
         if !self.imp().preserve_content.get() {
             self.update_sliding_view(&new_page.file());
         }

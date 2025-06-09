@@ -46,4 +46,5 @@ pub use print_preview::LpPrintPreview;
 pub use properties_view::LpPropertiesView;
 pub use shy_bin::LpShyBin;
 pub use sliding_view::LpSlidingView;
+pub use text_overlay::LpTextOverlay;
 pub use window::LpWindow;

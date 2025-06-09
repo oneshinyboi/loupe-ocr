@@ -48,8 +48,31 @@ lpdragoverlay .overlay-status {
   /* Same color for border as for icon and label */
   /* Probably due to a GTK bug, this currently does not give the exact same color */
   border: 2px dashed color-mix(in srgb, currentColor var(--dim-opacity), transparent);
+}
+
+/* Text overlay */
+lptextoverlay .text-overlay-background {
+  background-color: transparent;
+}
+
+lptextoverlay .text-container {
+  background-color: transparent;
+}
+
+lptextoverlay .selection-container {
+  background-color: transparent;
+}
+
+lptextoverlay .text-hover {
+  background-color: rgba(100, 150, 255, 0.2);
+  border: 1px solid rgba(100, 150, 255, 0.5);
   border-radius: 2px;
-  margin: 12px;
+}
+
+lptextoverlay .text-selection {
+  background-color: rgba(100, 150, 255, 0.3);
+  border: 1px solid rgba(100, 150, 255, 0.7);
+  border-radius: 2px;
 }
 
 lpdragoverlay .overlay-status label {

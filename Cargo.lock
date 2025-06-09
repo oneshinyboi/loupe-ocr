@@ -25,9 +25,9 @@ checksum = "4aa90d7ce82d4be67b64039a3d588d38dbcc6736577de4a847025ce5b0c468d1"
 
 [[package]]
 name = "anyhow"
-version = "1.0.96"
+version = "1.0.98"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6b964d184e89d9b6b67dd2715bc8e74cf3107fb2b529990c90cf517326150bf4"
+checksum = "e16d2d3311acee920a9eb8d33b8cbc1787ce4a264e85f964c2404b969bdcd487"
 
 [[package]]
 name = "arbitrary"
@@ -629,6 +629,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "flatbuffers"
+version = "24.12.23"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4f1baf0dbf96932ec9a3038d57900329c015b0bfb7b63d904f3bc27e2b02a096"
+dependencies = [
+ "bitflags 1.3.2",
+ "rustc_version",
+]
+
+[[package]]
 name = "flate2"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1017,7 +1027,7 @@ dependencies = [
  "memmap2",
  "nix",
  "static_assertions",
- "thiserror 2.0.11",
+ "thiserror 2.0.12",
  "tracing",
  "yeslogic-fontconfig-sys",
  "zbus",
@@ -1039,7 +1049,7 @@ dependencies = [
  "paste",
  "rmp-serde",
  "serde",
- "thiserror 2.0.11",
+ "thiserror 2.0.12",
  "zbus",
 ]
 
@@ -1176,7 +1186,7 @@ dependencies = [
  "gufo-webp",
  "gufo-xmp",
  "static_assertions",
- "thiserror 2.0.11",
+ "thiserror 2.0.12",
 ]
 
 [[package]]
@@ -1188,7 +1198,7 @@ dependencies = [
  "chrono",
  "paste",
  "serde",
- "thiserror 2.0.11",
+ "thiserror 2.0.12",
 ]
 
 [[package]]
@@ -1199,7 +1209,7 @@ checksum = "ca82b09b4055d19955579ac4d3fc9ead97392d616624863bd55af500d3232ff0"
 dependencies = [
  "chrono",
  "gufo-common",
- "thiserror 2.0.11",
+ "thiserror 2.0.12",
  "tracing",
 ]
 
@@ -1210,7 +1220,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "047379e4825d1a8581f0bf0daa841d71eff1503229bcdef004ad1d18e17b39f0"
 dependencies = [
  "gufo-common",
- "thiserror 2.0.11",
+ "thiserror 2.0.12",
  "tracing",
 ]
 
@@ -1223,7 +1233,7 @@ dependencies = [
  "gufo-common",
  "hex",
  "miniz_oxide",
- "thiserror 2.0.11",
+ "thiserror 2.0.12",
 ]
 
 [[package]]
@@ -1233,7 +1243,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "84e69f1a75908282b76dddc5e643de72b1598a6cf837b97786461514550be4ed"
 dependencies = [
  "gufo-common",
- "thiserror 2.0.11",
+ "thiserror 2.0.12",
 ]
 
 [[package]]
@@ -1243,7 +1253,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "846f879d7abcab5b6bb32adae0f8006bbaab3eec9d2a17859d5090925389cf5f"
 dependencies = [
  "gufo-common",
- "thiserror 2.0.11",
+ "thiserror 2.0.12",
 ]
 
 [[package]]
@@ -1254,7 +1264,7 @@ checksum = "46c6dd9093b5167ca6808e07d163d215d5a1747999579df320e1259d9cec7e6b"
 dependencies = [
  "chrono",
  "gufo-common",
- "thiserror 2.0.11",
+ "thiserror 2.0.12",
  "xml-rs",
 ]
 
@@ -1325,6 +1335,12 @@ name = "hermit-abi"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fbf6a919d6cf397374f7dfeeea91d974c7c0a7221d0d0f4f20d859d329e53fcc"
+
+[[package]]
+name = "hermit-abi"
+version = "0.5.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f154ce46856750ed433c8649605bf7ed2de3bc35fd9d2a9f30cddd873c80cb08"
 
 [[package]]
 name = "hex"
@@ -1757,14 +1773,17 @@ dependencies = [
  "gufo",
  "gufo-common",
  "gvdb-macros",
+ "image",
  "indexmap",
  "libadwaita",
  "libc",
  "libgweather",
  "log",
- "rusty-tesseract",
+ "ocrs",
+ "rten",
+ "rten-imageproc",
  "strum",
- "thiserror 2.0.11",
+ "thiserror 2.0.12",
  "tracing-subscriber",
  "url",
 ]
@@ -1942,6 +1961,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "num_cpus"
+version = "1.17.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "91df4bbde75afed763b708b7eee1e8e7651e02d97f6d5dd763e89367e957b23b"
+dependencies = [
+ "hermit-abi 0.5.1",
+ "libc",
+]
+
+[[package]]
 name = "objc"
 version = "0.2.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1968,6 +1997,21 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c92d4ddb4bd7b50d730c215ff871754d0da6b2178849f8a2a2ab69712d0c073b"
 dependencies = [
  "objc",
+]
+
+[[package]]
+name = "ocrs"
+version = "0.10.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5772ce13fa7efcf27ac9ff9971d75152cf0fd62d2d510f4c5b3d068d03b97572"
+dependencies = [
+ "anyhow",
+ "rayon",
+ "rten",
+ "rten-imageproc",
+ "rten-tensor",
+ "thiserror 2.0.12",
+ "wasm-bindgen",
 ]
 
 [[package]]
@@ -2084,7 +2128,7 @@ checksum = "a604568c3202727d1507653cb121dbd627a58684eb09a820fd746bee38b4442f"
 dependencies = [
  "cfg-if",
  "concurrent-queue",
- "hermit-abi",
+ "hermit-abi 0.4.0",
  "pin-project-lite",
  "rustix",
  "tracing",
@@ -2375,6 +2419,62 @@ dependencies = [
 ]
 
 [[package]]
+name = "rten"
+version = "0.18.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f6c402363efacb25de9132576ab35515c814a0aa35eb5887ce2ae0e8fc39e3c6"
+dependencies = [
+ "flatbuffers",
+ "num_cpus",
+ "rayon",
+ "rten-simd",
+ "rten-tensor",
+ "rten-vecmath",
+ "rustc-hash",
+ "smallvec",
+ "wasm-bindgen",
+]
+
+[[package]]
+name = "rten-imageproc"
+version = "0.18.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2a6e50914c0817f8250aa74496dda1d1b63c2c32f61ef8ad9493501d8f361f55"
+dependencies = [
+ "rten-tensor",
+]
+
+[[package]]
+name = "rten-simd"
+version = "0.18.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "54435da0587bd026f1440f219c27688a5902aa9024a42d5a0857505038c85704"
+
+[[package]]
+name = "rten-tensor"
+version = "0.18.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8be4ee5d8e63ebb8db62e09d34e3d51ac024abcbdaec872b9f7695d438a1fe28"
+dependencies = [
+ "smallvec",
+]
+
+[[package]]
+name = "rten-vecmath"
+version = "0.18.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8fdde8bb76eb0d8f160a8491d55365140a9ffe3f90ae26e8f26409262c447fcd"
+dependencies = [
+ "rten-simd",
+]
+
+[[package]]
+name = "rustc-hash"
+version = "2.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "357703d41365b4b27c590e3ed91eabb1b663f07c4c084095e60cbed4362dff0d"
+
+[[package]]
 name = "rustc_version"
 version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2401,19 +2501,6 @@ name = "rustversion"
 version = "1.0.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f7c45b9784283f1b2e7fb61b42047c2fd678ef0960d4f6f1eba131594cc369d4"
-
-[[package]]
-name = "rusty-tesseract"
-version = "1.1.10"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "781e2d6ed8bb85607de972e6c174902953da1f682b1d43004f0e66bf419b798f"
-dependencies = [
- "image",
- "subprocess",
- "substring",
- "tempfile",
- "thiserror 1.0.69",
-]
 
 [[package]]
 name = "ryu"
@@ -2577,25 +2664,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "subprocess"
-version = "0.2.9"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0c2e86926081dda636c546d8c5e641661049d7562a68f5488be4a1f7f66f6086"
-dependencies = [
- "libc",
- "winapi",
-]
-
-[[package]]
-name = "substring"
-version = "1.4.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "42ee6433ecef213b2e72f587ef64a2f5943e7cd16fbd82dbe8bc07486c534c86"
-dependencies = [
- "autocfg",
-]
-
-[[package]]
 name = "syn"
 version = "2.0.98"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2680,11 +2748,11 @@ dependencies = [
 
 [[package]]
 name = "thiserror"
-version = "2.0.11"
+version = "2.0.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d452f284b73e6d76dd36758a0c8684b1d5be31f92b89d07fd5822175732206fc"
+checksum = "567b8a2dae586314f7be2a752ec7474332959c6460e02bde30d702a66d488708"
 dependencies = [
- "thiserror-impl 2.0.11",
+ "thiserror-impl 2.0.12",
 ]
 
 [[package]]
@@ -2700,9 +2768,9 @@ dependencies = [
 
 [[package]]
 name = "thiserror-impl"
-version = "2.0.11"
+version = "2.0.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "26afc1baea8a989337eeb52b6e72a039780ce45c3edfcc9c5b9d112feeb173c2"
+checksum = "7f7cf42b4507d8ea322120659672cf1b9dbb93f8f2d4ecfd6e51350ff5b17a1d"
 dependencies = [
  "proc-macro2",
  "quote",

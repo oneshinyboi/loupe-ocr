@@ -43,4 +43,7 @@ strum = { version = "0.27.1", features = ["derive"] }
 thiserror = "2.0.3"
 tracing-subscriber = { version = "0.3.18", features = ["fmt", "env-filter"] }
 url = "2.3.1"
-rusty-tesseract = "1.1.10"
+ocrs = "0.10.3"
+rten-imageproc = "0.18.0"
+rten = "0.18.0"
+image = "0.25.6"

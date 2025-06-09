@@ -49,6 +49,9 @@
           </object>
         </child>
         <child type="overlay">
+          <object class="LpTextOverlay" id="text_overlay" />
+        </child>
+        <child type="overlay"> 
           <object class="GtkBox" id="controls_box_end">
             <property name="valign">end</property>
             <property name="halign">end</property>

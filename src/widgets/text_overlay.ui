@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="LpTextOverlay" parent="AdwBin">
+    <property name="can-target">false</property>
+    <property name="child">
+      <object class="GtkOverlay" id="overlay">
+        <property name="can-target">false</property>
+        <child type="overlay">
+          <object class="GtkRevealer" id="revealer">
+            <property name="can-target">false</property>
+            <property name="reveal-child">false</property>
+            <property name="child">
+              <object class="AdwBin">
+                <style>
+                  <class name="text-overlay-background" />
+                </style>
+                <property name="child">
+                  <object class="GtkOverlay">
+                    <property name="child">
+                      <object class="GtkFixed" id="text_container">
+                        <property name="vexpand">true</property>
+                        <property name="hexpand">true</property>
+                        <property name="can-target">false</property>
+                        <style>
+                          <class name="text-container" />
+                        </style>
+                      </object>
+                    </property>
+                    <child type="overlay">
+                      <object class="GtkFixed" id="selection_container">
+                        <property name="vexpand">true</property>
+                        <property name="hexpand">true</property>
+                        <property name="can-target">false</property>
+                        <style>
+                          <class name="selection-container" />
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+</interface>
